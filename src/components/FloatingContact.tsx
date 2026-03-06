@@ -6,7 +6,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
 
 export default function FloatingContact() {
-  const phone = '541144481404'; // Argentina prefix + number
+  const phone = '541136219993'; // Argentina prefix + number
   const whatsappUrl = `https://wa.me/${phone}`;
   const instagramUrl = 'https://www.instagram.com/cerrajeriaclavem';
 

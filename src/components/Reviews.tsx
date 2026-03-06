@@ -15,6 +15,17 @@ import {
 import GoogleIcon from '@mui/icons-material/Google';
 import StarIcon from '@mui/icons-material/Star';
 
+/* 
+// --- CONFIGURACIÓN PARA GOOGLE BUSINESS PROFILE API ---
+// Para conectar la API real, necesitarás:
+// 1. Crear un proyecto en Google Cloud Console.
+// 2. Habilitar la "Google Business Profile API".
+// 3. Obtener un OAuth 2.0 Token o API Key según corresponda.
+// 4. Obtener tu Account ID y Location ID.
+
+const GOOGLE_API_URL = 'https://mybusiness.googleapis.com/v4/accounts/{ACCOUNT_ID}/locations/{LOCATION_ID}/reviews';
+*/
+
 // Mock data structured similarly to Google Business Profile API responses
 const MOCK_REVIEWS = [
   {
@@ -60,6 +71,43 @@ const MOCK_REVIEWS = [
 ];
 
 export default function Reviews() {
+  /*
+  const [reviews, setReviews] = React.useState(MOCK_REVIEWS);
+  const [loading, setLoading] = React.useState(false);
+
+  React.useEffect(() => {
+    // const fetchReviews = async () => {
+    //   setLoading(true);
+    //   try {
+    //     const response = await fetch(GOOGLE_API_URL, {
+    //       headers: {
+    //         'Authorization': `Bearer ${YOUR_ACCESS_TOKEN}`
+    //       }
+    //     });
+    //     const data = await response.json();
+    //     
+    //     // Mapeo selectivo de la API de Google a nuestro componente
+    //     const formattedReviews = data.reviews.map((r: any) => ({
+    //       reviewId: r.reviewId,
+    //       reviewer: {
+    //         displayName: r.reviewer.displayName,
+    //         profilePhotoUrl: r.reviewer.profilePhotoUrl,
+    //       },
+    //       starRating: r.starRating === 'FIVE' ? 5 : r.starRating === 'FOUR' ? 4 : 3, // Simplificado
+    //       comment: r.comment,
+    //       createTime: new Date(r.createTime).toLocaleDateString(),
+    //     }));
+    //     setReviews(formattedReviews);
+    //   } catch (error) {
+    //     console.error('Error fetching Google Reviews:', error);
+    //   } finally {
+    //     setLoading(false);
+    //   }
+    // };
+    // fetchReviews();
+  }, []);
+  */
+
   return (
     <Box id="opiniones" sx={{ py: 10, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">

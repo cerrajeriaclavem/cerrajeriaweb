@@ -78,7 +78,7 @@ export default function Footer() {
               </IconButton>
               <IconButton 
                 sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.2)', '&:hover': { bgcolor: '#25D366', color: 'white' } }}
-                href="https://wa.me/541144481404"
+                href="https://wa.me/541136219993"
                 target="_blank"
               >
                 <WhatsAppIcon />

@@ -13,28 +13,20 @@ import 'swiper/css/navigation';
 
 const itemData = [
   {
-    img: 'https://images.unsplash.com/photo-1558002038-1055907df827?q=80&w=800',
+    img: '/images/1.jpeg',
     title: 'Cerraduras de Seguridad',
   },
   {
-    img: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?q=80&w=800',
+    img: '/images/2.jpeg',
     title: 'Aperturas Profesionales',
   },
   {
-    img: 'https://images.unsplash.com/photo-1563914041221-995b2c7e0f80?q=80&w=800',
-    title: 'Cajas Fuertes',
+    img: '/images/3.jpeg',
+    title: 'Cerraduras de Alta Gama',
   },
   {
-    img: 'https://images.unsplash.com/photo-1510820377515-68344844594c?q=80&w=800',
+    img: '/images/4.jpeg',
     title: 'Instalaciones Premium',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?q=80&w=800',
-    title: 'Sistemas Digitales',
-  },
-  {
-    img: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=800',
-    title: 'Cerrajería Integral',
   },
 ];
 
