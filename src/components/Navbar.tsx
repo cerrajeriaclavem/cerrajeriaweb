@@ -74,7 +74,7 @@ export default function Navbar() {
             sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
             onClick={() => scrollToSection('inicio')}
           >
-            <KeyIcon sx={{ mr: 1, color: trigger ? 'secondary.main' : 'primary.main' }} />
+            <KeyIcon sx={{ mr: 1, fontSize: { xs: 28, md: 34 }, color: trigger ? 'secondary.main' : 'secondary.main' }} />
             <Typography
               variant="h6"
               component="div"
