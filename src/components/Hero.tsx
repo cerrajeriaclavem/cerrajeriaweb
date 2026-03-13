@@ -35,7 +35,7 @@ export default function Hero() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url("https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&q=80&w=1600")',
+          backgroundImage: 'url("/fondo_2.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: -2,

@@ -25,7 +25,7 @@ export default function FloatingContact() {
       <Zoom in timeout={500} style={{ transitionDelay: '200ms' }}>
         <Fab
           color="secondary"
-          size="medium"
+          size="large"
           aria-label="instagram"
           href={instagramUrl}
           target="_blank"
