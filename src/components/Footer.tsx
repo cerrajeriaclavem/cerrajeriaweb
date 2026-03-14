@@ -5,6 +5,7 @@ import { Box, Container, Typography, Stack, IconButton, Divider, Grid } from '@m
 import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import KeyIcon from '@mui/icons-material/Key';
+import Image from 'next/image';
 
 export default function Footer() {
   const [mounted, setMounted] = useState(false);
@@ -34,8 +35,9 @@ export default function Footer() {
           <Grid size={{ xs: 12, md: 4 }}>
             <Stack spacing={2}>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                <KeyIcon sx={{ mr: 1, color: 'secondary.main' }} />
-                <Typography variant="h5" fontWeight={800}>CLAVEM</Typography>
+                {/* <KeyIcon sx={{ mr: 1, color: 'secondary.main' }} />
+                <Typography variant="h5" fontWeight={800}>CLAVEM</Typography> */}
+                <Image src="/images/logo.png" alt="Cerrajería Clavem Logo" width={100} height={100} />
               </Box>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', maxWidth: 300 }}>
                 Cerrajería integral 24 horas. Soluciones de seguridad para tu hogar, comercio y vehículo.
@@ -56,7 +58,8 @@ export default function Footer() {
                     '&:hover': { color: 'secondary.main' }
                   }}
                   onClick={() => {
-                    const el = document.getElementById(item.toLowerCase());
+                    const targetId = item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    const el = document.getElementById(targetId);
                     if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
                   }}
                 >

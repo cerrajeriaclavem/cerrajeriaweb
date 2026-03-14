@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Cerrajería Clavem | Cerrajero 24 Horas",
-  description: "Cerrajería profesional 24/7 en Buenos Aires. Aperturas, cajas fuertes, autos y más. Contacta a Fernando al 11-4448-1404.",
+  description: "Cerrajería profesional 24/7 en Buenos Aires. Aperturas, cajas fuertes, autos y más. Contacta a Fernando al 11-3621-9993.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         <ThemeRegistry>
           {children}
         </ThemeRegistry>
