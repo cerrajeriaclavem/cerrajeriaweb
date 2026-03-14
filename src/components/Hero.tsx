@@ -35,7 +35,7 @@ export default function Hero() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: 'url("/images/hero.jpg")',
+          backgroundImage: 'url("/fondo_2.png")',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           zIndex: -2,
@@ -111,7 +111,7 @@ export default function Hero() {
                 <Button 
                   variant="contained" 
                   size="large"
-                  href="tel:1144481404"
+                  href="tel:1136219993"
                   sx={{ 
                     px: 6, 
                     py: 2, 
@@ -123,7 +123,7 @@ export default function Hero() {
                     '&:hover': { bgcolor: '#f0f0f0', transform: 'translateY(-2px)' }
                   }}
                 >
-                  Llamar 11-4448-1404
+                  Llamar 11-3621-9993
                 </Button>
               </Box>
 

@@ -70,7 +70,7 @@ export default function Contact() {
         {/* Info Row (Horizontal on Desktop) */}
         <Grid container spacing={3} sx={{ mb: 8 }}>
           {[
-            { icon: <PhoneIcon />, title: 'Teléfono', content: '11-4448-1404', color: '#003366' },
+            { icon: <PhoneIcon />, title: 'Teléfono', content: '11-3621-9993', color: '#003366' },
             { icon: <EmailIcon />, title: 'Email', content: 'cerrajeriaclavem@gmail.com', color: '#003366' },
             { icon: <LocationOnIcon />, title: 'Cobertura', content: 'Buenos Aires y alrededores', color: '#003366' }
           ].map((item, index) => (
