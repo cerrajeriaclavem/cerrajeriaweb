@@ -72,7 +72,7 @@ export default function Contact() {
           {[
             { icon: <PhoneIcon />, title: 'Teléfono', content: '11-3621-9993', color: '#003366' },
             { icon: <EmailIcon />, title: 'Email', content: 'cerrajeriaclavem@gmail.com', color: '#003366' },
-            { icon: <LocationOnIcon />, title: 'Cobertura', content: 'Buenos Aires y alrededores', color: '#003366' }
+            { icon: <LocationOnIcon />, title: 'Cobertura', content: 'CABA', color: '#003366' }
           ].map((item, index) => (
             <Grid size={{ xs: 12, md: 4 }} key={index}>
               <motion.div
