@@ -96,9 +96,6 @@ export default function Footer() {
           <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>
             &copy; {currentYear} Cerrajería Clavem. Todos los derechos reservados.
           </Typography>
-          <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.3)', mt: 1, display: 'block' }}>
-            Diseñado con profesionalismo y confianza.
-          </Typography>
         </Box>
       </Container>
     </Box>
