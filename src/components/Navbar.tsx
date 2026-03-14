@@ -17,6 +17,7 @@ import {
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import KeyIcon from '@mui/icons-material/Key';
+import Image from 'next/image';
 
 const navItems = [
   { label: 'Inicio', id: 'inicio' },
@@ -74,18 +75,7 @@ export default function Navbar() {
             sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
             onClick={() => scrollToSection('inicio')}
           >
-            <KeyIcon sx={{ mr: 1, color: trigger ? 'secondary.main' : 'primary.main' }} />
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{ 
-                fontWeight: 800, 
-                color: trigger ? 'white' : 'primary.main',
-                letterSpacing: 1
-              }}
-            >
-              CLAVEM
-            </Typography>
+            <Image src="/images/logo.png" alt="Cerrajería Clavem Logo" width={150} height={150} />
           </Box>
 
           {/* Desktop Menu */}

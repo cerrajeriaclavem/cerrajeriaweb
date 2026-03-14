@@ -9,7 +9,7 @@ const TrustindexWidget = dynamic(() => import('./TrustindexWidget'), {
 
 export default function Reviews() {
   return (
-    <Box id="opiniones" sx={{ py: 10, backgroundColor: 'background.default' }}>
+    <Box id="opiniones" sx={{ py: 5, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
         <Typography 
           variant="h2" 
