@@ -89,7 +89,7 @@ export default function Hero() {
                   fontWeight: 400
                 }}
               >
-                Servicio profesional las 24 horas. Soluciones rápidas y efectivas para hogares, comercios y vehículos. Fernando a tu disposición.
+                Servicio profesional las 24 horas. Soluciones rápidas y efectivas para hogares, comercios y vehículos.
               </Typography>
               
               <Box sx={{ display: 'flex', gap: 2, flexWrap: 'wrap', mb: 8 }}>
@@ -149,7 +149,7 @@ export default function Hero() {
                     <Box>
                       <Typography variant="h6" sx={{ fontWeight: 800, color: 'white' }}>Servicio Garantizado</Typography>
                       <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                        Trabajos realizados por Fernando con máxima calidad.
+                        Trabajos realizados con máxima calidad.
                       </Typography>
                     </Box>
                   </Box>

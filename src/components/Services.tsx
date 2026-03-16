@@ -27,7 +27,7 @@ const services = [
   },
   {
     title: 'Apertura de Puertas',
-    description: 'Aperturas residenciales y comerciales sin daños al marco ni a la cerradura.',
+    description: 'Aperturas residenciales y comerciales.',
     icon: <DoorFrontIcon sx={{ fontSize: 40 }} />,
     color: '#003366'
   },
