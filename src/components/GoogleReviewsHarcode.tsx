@@ -78,7 +78,7 @@ export default function GoogleReviewsWidget() {
           gap: 3,
           pb: 2, 
           scrollSnapType: 'x mandatory',
-          '-webkit-overflow-scrolling': 'touch', // Scroll suave en iOS
+          WebkitOverflowScrolling: 'touch', // Scroll suave en iOS
           
           // Ocultar barra de scroll en todos los navegadores
           msOverflowStyle: 'none',

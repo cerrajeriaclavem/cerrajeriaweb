@@ -108,7 +108,7 @@ export default function GoogleReviewsWidget() {
           gap: 3,
           pb: 2, 
           scrollSnapType: 'x mandatory',
-          '-webkit-overflow-scrolling': 'touch',
+          WebkitOverflowScrolling: 'touch',
           msOverflowStyle: 'none',
           scrollbarWidth: 'none',
           '&::-webkit-scrollbar': {

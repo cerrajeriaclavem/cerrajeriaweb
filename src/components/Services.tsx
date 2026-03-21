@@ -33,7 +33,7 @@ const services = [
   },
   {
     title: 'Cerrajería Automotriz',
-    description: 'Apertura de vehículos de todas las marcas y modelos, llaves y mandos.',
+    description: 'Apertura y destrabe de puertas de autos.',
     icon: <CarRentalIcon sx={{ fontSize: 40 }} />,
     color: '#003366'
   },
