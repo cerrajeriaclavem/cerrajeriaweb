@@ -16,7 +16,7 @@ export default function Home() {
       <Hero />
       <Services />
       <Gallery />
-      <Reviews />
+      {/* <Reviews /> */}
       <Contact />
       <Footer />
       <FloatingContact />
