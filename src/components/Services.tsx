@@ -1,13 +1,13 @@
 'use client';
 
 import React from 'react';
-import { 
-  Box, 
-  Container, 
-  Typography, 
-  Grid, 
-  Card, 
-  CardContent, 
+import {
+  Box,
+  Container,
+  Typography,
+  Grid,
+  Card,
+  CardContent,
   Icon
 } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -33,7 +33,7 @@ const services = [
   },
   {
     title: 'Cerrajería Automotriz',
-    description: 'Apertura y destrabe de puertas de autos.',
+    description: 'Apertura y destrabe de puertas.',
     icon: <CarRentalIcon sx={{ fontSize: 40 }} />,
     color: '#003366'
   },
@@ -62,26 +62,26 @@ export default function Services() {
     <Box id="servicios" component="section" sx={{ bgcolor: 'white' }}>
       <Container maxWidth="lg">
         <Box sx={{ textAlign: 'center', mb: 8 }}>
-          <Typography 
-            variant="h2" 
-            gutterBottom 
+          <Typography
+            variant="h2"
+            gutterBottom
             sx={{ fontWeight: 800, color: 'primary.main' }}
           >
             Nuestros Servicios
           </Typography>
-          <Box 
-            sx={{ 
-              width: 80, 
-              height: 4, 
-              bgcolor: 'secondary.main', 
-              mx: 'auto', 
+          <Box
+            sx={{
+              width: 80,
+              height: 4,
+              bgcolor: 'secondary.main',
+              mx: 'auto',
               mb: 3,
               borderRadius: 2
-            }} 
+            }}
           />
-          <Typography 
-            variant="body1" 
-            color="text.secondary" 
+          <Typography
+            variant="body1"
+            color="text.secondary"
             sx={{ maxWidth: 700, mx: 'auto' }}
           >
             Ofrecemos soluciones integrales de cerrajería con la más alta calidad y garantía.
@@ -99,11 +99,11 @@ export default function Services() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 style={{ height: '100%' }}
               >
-                <Card 
-                  sx={{ 
-                    height: '100%', 
-                    display: 'flex', 
-                    flexDirection: 'column', 
+                <Card
+                  sx={{
+                    height: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
                     borderRadius: 4,
                     transition: '0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     border: '1px solid rgba(0, 51, 102, 0.05)',
@@ -121,11 +121,11 @@ export default function Services() {
                   }}
                 >
                   <CardContent sx={{ flexGrow: 1, textAlign: 'center', pt: 5, pb: 4, px: 3 }}>
-                    <Box 
+                    <Box
                       className="service-icon-box"
-                      sx={{ 
-                        display: 'inline-flex', 
-                        mb: 3, 
+                      sx={{
+                        display: 'inline-flex',
+                        mb: 3,
                         p: 2,
                         borderRadius: 3,
                         bgcolor: 'rgba(0, 51, 102, 0.05)',
@@ -135,10 +135,10 @@ export default function Services() {
                     >
                       {service.icon}
                     </Box>
-                    <Typography 
-                      gutterBottom 
-                      variant="h5" 
-                      component="h3" 
+                    <Typography
+                      gutterBottom
+                      variant="h5"
+                      component="h3"
                       sx={{ fontWeight: 800, mb: 2, color: 'primary.main' }}
                     >
                       {service.title}
