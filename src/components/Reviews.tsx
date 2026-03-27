@@ -1,12 +1,5 @@
-'use client';
-
-import dynamic from 'next/dynamic';
 import { Box, Container, Typography, Button } from '@mui/material';
-import GoogleReviewsHarcode from './GoogleReviewsHarcode';
-
-const GoogleReviewsWidget = dynamic(() => import('./GoogleReviewsWidget'), {
-  ssr: false,
-});
+import GoogleReviewsWidget from './ReviewsHarcode';
 
 export default function Reviews() {
   return (
@@ -29,12 +22,7 @@ export default function Reviews() {
         </Typography>
 
         <Box sx={{ mt: 4, width: '100%' }}>              
-          <Box 
-            id="opiniones-widget" 
-            sx={{ width: '100%' }} 
-          >
-           <GoogleReviewsHarcode />
-          </Box>
+          <GoogleReviewsWidget />
         </Box>
 
         <Box sx={{ mt: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

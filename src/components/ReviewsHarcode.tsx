@@ -1,46 +1,78 @@
 'use client';
 
-import { useRef, useState, UIEvent } from 'react';
-import { Box, Card, CardContent, Typography, Avatar, Rating } from '@mui/material';
+import { useRef, useState, UIEvent, useEffect } from 'react';
+import { Box, Card, CardContent, Typography, Avatar, Rating, CircularProgress } from '@mui/material';
 
-// Estas son reseñas destacadas estáticas. 
-// Es la forma más fácil, rápida y 100% gratuita de mostrar excelentes reseñas de tus clientes.
-// No dependes de ningún plugin de terceros ni pagos mensuales. Puedes actualizarlas cuando quieras.
-const REVIEWS = [
-  {
-    author_name: "Luis Fiorda",
-    rating: 5,
-    text: "Excelente servicio, rápido y muy prolijo para trabajar. Recomiendo ampliamente.",
-    time: "hace 2 semanas"
-  },
-  {
-    author_name: "Debora Salcedo",
-    rating: 5,
-    text: "Excelente servicio. Llamé ante una urgencia,  respondieron inmediatamente. Llegaron en el tiempo que me dijeron y solucionaron mi problema de manera muy prolija.",
-    time: "hace 3 semanas"
-  },
-  {
-    author_name: "Myriam Tawil",
-    rating: 5,
-    text: "Un genio Fernando. Excelente persona y profesional. Te contesta al instante y no se retira, aunque sea tarde, hasta no terminar por completo el trabajo. Muy recomendable. Excelentes precios.",
-    time: "hace 2 semanas"
-  }
-];
+interface Review {
+  author_name: string;
+  rating: number;
+  text: string;
+  time: string;
+}
 
 export default function GoogleReviewsWidget() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [reviews, setReviews] = useState<Review[]>([]);
+  const [loading, setLoading] = useState(true);
 
-  // Calcula qué tarjeta está más centrada en la pantalla según el scroll
+  useEffect(() => {
+    const fetchReviews = async () => {
+      try {
+        const widgetId = process.env.NEXT_PUBLIC_FEATURABLE_WIDGET_ID || '94641a6d-c3e3-474f-aa8c-b174ee15f55b';
+        const res = await fetch(`https://featurable.com/api/v2/widgets/${widgetId}`);
+        const data = await res.json();
+        
+        if (data.success && data.widget && data.widget.reviews) {
+          const parsed = data.widget.reviews.map((r: any) => {
+            const dateStr = r.publishedAt || r.createdAt;
+            const date = dateStr ? new Date(dateStr) : new Date();
+            const now = new Date();
+            const diffInSeconds = Math.floor((now.getTime() - date.getTime()) / 1000);
+            
+            let timeStr = "";
+            const diffInDays = Math.floor(diffInSeconds / (3600 * 24));
+            if (diffInDays < 7) {
+              timeStr = diffInDays <= 0 ? "hoy" : `hace ${diffInDays} día${diffInDays !== 1 ? 's' : ''}`;
+            } else if (diffInDays < 30) {
+              const weeks = Math.floor(diffInDays / 7);
+              timeStr = `hace ${weeks} semana${weeks !== 1 ? 's' : ''}`;
+            } else if (diffInDays < 365) {
+              const months = Math.floor(diffInDays / 30);
+              timeStr = `hace ${months} mes${months !== 1 ? 'es' : ''}`;
+            } else {
+              const years = Math.floor(diffInDays / 365);
+              timeStr = `hace ${years} año${years !== 1 ? 's' : ''}`;
+            }
+
+            return {
+              author_name: r.author?.name || "Usuario",
+              rating: r.rating?.value || 5,
+              text: r.originalText || r.text || "",
+              time: timeStr
+            };
+          });
+          setReviews(parsed);
+        }
+      } catch (error) {
+        console.error("Error fetching reviews:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+    
+    fetchReviews();
+  }, []);
+
   const handleScroll = (e: UIEvent<HTMLDivElement>) => {
     const container = e.currentTarget;
     const scrollLeft = container.scrollLeft;
     
-    // Ancho promedio de cada elemento (incluyendo el gap aproximado). Redondeamos.
-    const itemWidth = container.scrollWidth / REVIEWS.length;
+    // Ancho promedio de cada elemento
+    const itemWidth = container.scrollWidth / (reviews.length || 1);
     const newIndex = Math.round(scrollLeft / itemWidth);
     
-    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < REVIEWS.length) {
+    if (newIndex !== activeIndex && newIndex >= 0 && newIndex < reviews.length) {
       setActiveIndex(newIndex);
     }
   };
@@ -49,14 +81,10 @@ export default function GoogleReviewsWidget() {
     if (!containerRef.current) return;
     
     const container = containerRef.current;
-    
-    // Obtenemos los elementos hijos de la caja principal (las reseñas)
     const cards = container.children;
     if (cards && cards[index]) {
-      // Usamos el método nativo para scrollear hacia la tarjeta calculada, sin romper responsive
       const targetCard = cards[index] as HTMLElement;
       
-      // Calculamos su posición exacta restando la mitad de la pantalla para centrarlo (si es móvil)
       container.scrollTo({
         left: targetCard.offsetLeft - (container.clientWidth / 2 - targetCard.clientWidth / 2),
         behavior: 'smooth'
@@ -64,6 +92,18 @@ export default function GoogleReviewsWidget() {
       setActiveIndex(index);
     }
   };
+
+  if (loading) {
+    return (
+      <Box sx={{ width: '100%', py: 8, display: 'flex', justifyContent: 'center' }}>
+        <CircularProgress />
+      </Box>
+    );
+  }
+
+  if (reviews.length === 0) {
+    return null;
+  }
 
   return (
     <Box sx={{ width: '100%', maxWidth: '1200px', mx: 'auto', px: 2, py: 2 }}>
@@ -88,7 +128,7 @@ export default function GoogleReviewsWidget() {
           }
         }}
       >
-        {REVIEWS.map((review, index) => (
+        {reviews.map((review, index) => (
           <Box 
             key={index}
             sx={{
@@ -157,7 +197,7 @@ export default function GoogleReviewsWidget() {
 
       {/* Bullets (Paginador visual) */}
       <Box sx={{ display: { xs: 'flex', md: 'none' }, justifyContent: 'center', mt: 1, gap: 1.5 }}>
-        {REVIEWS.map((_, index) => (
+        {reviews.map((_, index) => (
           <Box
             key={index}
             onClick={() => scrollTo(index)}
