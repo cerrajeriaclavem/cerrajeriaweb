@@ -10,7 +10,7 @@ const GoogleReviewsWidget = dynamic(() => import('./GoogleReviewsWidget'), {
 
 export default function Reviews() {
   return (
-    <Box id="opiniones" sx={{ py: 5, backgroundColor: 'background.default' }}>
+    <Box id="opiniones" component="section" sx={{ py: 5, backgroundColor: 'background.default' }}>
       <Container maxWidth="lg">
         <Typography 
           variant="h2" 
