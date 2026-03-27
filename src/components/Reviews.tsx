@@ -1,5 +1,5 @@
 import { Box, Container, Typography, Button } from '@mui/material';
-import GoogleReviewsWidget from './ReviewsHarcode';
+import GoogleReviewsWidget from './ReviewsApi';
 
 export default function Reviews() {
   return (
