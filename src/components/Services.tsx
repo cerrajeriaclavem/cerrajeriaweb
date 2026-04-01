@@ -51,7 +51,7 @@ const services = [
   },
   {
     title: 'Reparación e Instalación',
-    description: 'Mantenimiento preventivo y correctivo de todo tipo de herrajes.',
+    description: 'Hacemos instalación, mantenimiento y cambio de cierapuertas (de piso y aéreo). Servicio de Blindex, cambio de herrajes, bujes y cerraduras.',
     icon: <HomeRepairServiceIcon sx={{ fontSize: 40 }} />,
     color: '#003366'
   }
