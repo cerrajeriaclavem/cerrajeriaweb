@@ -33,7 +33,7 @@ export default function Reviews() {
             variant="outlined" 
             color="inherit" 
             size="large"
-            href="https://www.google.com/maps/place/Cerrajeria+24+hs+a+domicilio/data=!4m2!3m1!1s0x10c350a4a77d3e1:0xaa22284143a46608!18m1!1e1"
+            href="https://www.google.com/maps/place/Cerrajeria+24+hs+clavem/@-34.6156548,-58.5156999,21835m/data=!3m2!1e3!4b1!4m6!3m5!1s0x236c9ef36e3bf293:0xc73ba8591207c7bd!8m2!3d-34.6158238!4d-58.4332985!16s%2Fg%2F11z21f03ry!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MDQxMy4wIKXMDSoASAFQAw%3D%3D"
             target="_blank"
             rel="noopener noreferrer"
             sx={{ 
