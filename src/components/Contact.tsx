@@ -62,7 +62,7 @@ export default function Contact() {
             color="text.secondary" 
             sx={{ maxWidth: 700, mx: 'auto' }}
           >
-            ¿Tienes alguna urgencia o consulta? Fernando te atenderá a la brevedad.
+            ¿Tienes alguna urgencia o consulta? Nuestro equipo te atenderá a la brevedad.
             Atendemos emergencias las 24 horas del día.
           </Typography>
         </Box>
