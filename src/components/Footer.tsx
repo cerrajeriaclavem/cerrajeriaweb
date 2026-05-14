@@ -32,11 +32,9 @@ export default function Footer() {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4} sx={{ mb: 6 }}>
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <Stack spacing={2}>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                {/* <KeyIcon sx={{ mr: 1, color: 'secondary.main' }} />
-                <Typography variant="h5" fontWeight={800}>CLAVEM</Typography> */}
                 <Image src="/images/logo.png" alt="Cerrajería Clavem Logo" width={100} height={100} />
               </Box>
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', maxWidth: 300 }}>
@@ -45,7 +43,7 @@ export default function Footer() {
             </Stack>
           </Grid>
           
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, md: 3 }}>
             <Typography variant="h6" fontWeight={700} gutterBottom>Enlaces</Typography>
             <Stack spacing={1}>
               {['Inicio', 'Servicios', 'Galería', 'Opiniones', 'Contacto'].map((item) => (
@@ -69,7 +67,33 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 4 }}>
+          <Grid size={{ xs: 12, md: 3 }}>
+            <Typography variant="h6" fontWeight={700} gutterBottom>Servicios SEO</Typography>
+            <Stack spacing={1}>
+              {[
+                { name: 'Cerrajero Urgente', url: '/cerrajero-urgente-buenos-aires' },
+                { name: 'Apertura de Puertas', url: '/apertura-de-puertas' },
+                { name: 'Cambio de Cerraduras', url: '/cambio-de-cerraduras' }
+              ].map((service) => (
+                <Typography 
+                  key={service.url} 
+                  variant="body2" 
+                  component="a"
+                  href={service.url}
+                  sx={{ 
+                    color: 'rgba(255,255,255,0.7)', 
+                    textDecoration: 'none',
+                    display: 'block',
+                    '&:hover': { color: 'secondary.main' }
+                  }}
+                >
+                  {service.name}
+                </Typography>
+              ))}
+            </Stack>
+          </Grid>
+          
+          <Grid size={{ xs: 12, md: 3 }}>
             <Typography variant="h6" fontWeight={700} gutterBottom>Redes Sociales</Typography>
             <Stack direction="row" spacing={1}>
               <IconButton 
