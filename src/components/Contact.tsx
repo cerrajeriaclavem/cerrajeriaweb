@@ -14,7 +14,7 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import PhoneIcon from '@mui/icons-material/Phone';
-import EmailIcon from '@mui/icons-material/Email';
+import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SendIcon from '@mui/icons-material/Send';
 
@@ -70,9 +70,9 @@ export default function Contact() {
         {/* Info Row (Horizontal on Desktop) */}
         <Grid container spacing={3} sx={{ mb: 8 }}>
           {[
-            { icon: <PhoneIcon />, title: 'Teléfono', content: '11-3621-9993', color: '#003366' },
-            { icon: <EmailIcon />, title: 'Email', content: 'cerrajeriaclavem@gmail.com', color: '#003366' },
-            { icon: <LocationOnIcon />, title: 'Cobertura', content: 'CABA', color: '#003366' }
+            { icon: <PhoneIcon />, title: 'Llamame!', content: '11-3621-9993', href: 'tel:1136219993', target: '_self' },
+            { icon: <WhatsAppIcon />, title: 'Escribime', content: '11-6524-9874', href: 'https://wa.me/5491165249874', target: '_blank' },
+            { icon: <LocationOnIcon />, title: 'Ubicación', content: 'Jerónimo Salguero 1061, CABA', href: 'https://www.google.com/maps/place/Cerrajeria+24+hs+Clavem/@-34.5982428,-58.4214406,17z/data=!3m1!4b1!4m6!3m5!1s0x236c9ef36e3bf293:0xc73ba8591207c7bd!8m2!3d-34.5982472!4d-58.4188657!16s%2Fg%2F11z21f03ry?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D', target: '_blank' }
           ].map((item, index) => (
             <Grid size={{ xs: 12, md: 4 }} key={index}>
               <motion.div
@@ -80,10 +80,17 @@ export default function Contact() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
+                style={{ height: '100%' }}
               >
                 <Paper 
+                  component="a"
+                  href={item.href}
+                  target={item.target}
                   elevation={0} 
                   sx={{ 
+                    display: 'block',
+                    textDecoration: 'none',
+                    color: 'inherit',
                     p: 4, 
                     textAlign: 'center', 
                     bgcolor: '#f8faff', 

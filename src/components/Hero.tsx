@@ -5,6 +5,7 @@ import { Box, Typography, Button, Container, Grid, Paper } from '@mui/material';
 import { motion } from 'framer-motion';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -54,7 +55,7 @@ export default function Hero() {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4} alignItems="center">
-          <Grid size={{ xs: 12, md: 8 }}>
+          <Grid size={{ xs: 12, md: 10 }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -128,7 +129,7 @@ export default function Hero() {
               </Box>
 
               <Grid container spacing={4}>
-                <Grid size={{ xs: 12, sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <Box sx={{ bgcolor: 'secondary.main', p: 1, borderRadius: 2 }}>
                       <AccessTimeIcon sx={{ fontSize: 30, color: 'primary.main' }} />
@@ -141,7 +142,7 @@ export default function Hero() {
                     </Box>
                   </Box>
                 </Grid>
-                <Grid size={{ xs: 12, sm: 6 }}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }}>
                   <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
                     <Box sx={{ bgcolor: 'secondary.main', p: 1, borderRadius: 2 }}>
                       <SupportAgentIcon sx={{ fontSize: 30, color: 'primary.main' }} />
@@ -150,6 +151,19 @@ export default function Hero() {
                       <Typography variant="h6" sx={{ fontWeight: 800, color: 'white' }}>Servicio Garantizado</Typography>
                       <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
                         Trabajos realizados con máxima calidad.
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }}>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+                    <Box sx={{ bgcolor: 'secondary.main', p: 1, borderRadius: 2 }}>
+                      <StorefrontIcon sx={{ fontSize: 30, color: 'primary.main' }} />
+                    </Box>
+                    <Box>
+                      <Typography variant="h6" sx={{ fontWeight: 800, color: 'white' }}>Te esperamos en</Typography>
+                      <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
+                        Jerónimo Salguero 1061, CABA.
                       </Typography>
                     </Box>
                   </Box>
