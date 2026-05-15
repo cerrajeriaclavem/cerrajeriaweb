@@ -20,7 +20,6 @@ export default function AperturaPuertasPage() {
   return (
     <Box component="main">
       <Navbar />
-      
       {/* Hero Section */}
       <Box 
         sx={{ 
@@ -91,19 +90,11 @@ export default function AperturaPuertasPage() {
               Trabajamos con todo tipo de tecnologías, desde las más antiguas hasta sistemas de alta seguridad modernos:
             </Typography>
             
-            <Box component="ul" sx={{ pl: 3, mb: 4 }}>
-              <li><Typography variant="body1"><strong>Puertas Blindadas y Semiblindadas:</strong> Conocemos los mecanismos de marcas como Pentágono, Potent y más.</Typography></li>            
+            <Box component="ul" sx={{ pl: 3 }}>
+              <li><Typography variant="body1"><strong>Puertas Blindadas y Semiblindadas:</strong>Trabajamos con los mecanismos de seguridad.</Typography></li>            
               <li><Typography variant="body1"><strong>Puertas de Blindex:</strong> Especialistas en locales comerciales y edificios.</Typography></li>
               <li><Typography variant="body1"><strong>Portones y Rejas:</strong> Soluciones rápidas para accesos exteriores.</Typography></li>
             </Box>
-
-            <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, mt: 4, mb: 2, fontSize: '1.75rem' }}>
-              Servicio de Cerrajero a Domicilio en CABA
-            </Typography>
-            <Typography variant="body1" paragraph>
-              Nuestra cobertura abarca barrios como Almagro, Palermo, Belgrano, Recoleta y Microcentro. 
-              Si necesitas <strong>abrir una puerta urgente</strong>, no dudes en contactarnos. Un técnico saldrá de inmediato hacia tu domicilio.
-            </Typography>
           </Grid>
           
           <Grid size={{ xs: 12, md: 4 }}>

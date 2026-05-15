@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import FloatingContact from '@/components/FloatingContact';
 import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import KeyIcon from '@mui/icons-material/Key';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -19,7 +20,6 @@ export default function CambioCerradurasPage() {
   return (
     <Box component="main">
       <Navbar />
-      
       {/* Hero Section */}
       <Box 
         sx={{ 
@@ -61,6 +61,7 @@ export default function CambioCerradurasPage() {
               variant="outlined" 
               sx={{ color: 'white', borderColor: 'white', px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}
               href="https://wa.me/5491136219993"
+              target="_blank"
               startIcon={<WhatsAppIcon />}
             >
               Pedir Presupuesto
@@ -91,13 +92,13 @@ export default function CambioCerradurasPage() {
             </Typography>
             
             <Box component="ul" sx={{ pl: 3, mb: 4 }}>
-              <li><Typography variant="body1"><strong>Cerraduras:</strong> Marca 1, marca 2</Typography></li>
+              <li><Typography variant="body1"><strong>Cerraduras:</strong>Trabajamos con marcas como Trabex, Prive, Sekur y más.</Typography></li>
               <li><Typography variant="body1"><strong>Cerraduras Digitales:</strong> Cambio de cilindros y reparación.</Typography></li>              
               <li><Typography variant="body1"><strong>Cilindros:</strong> Cambio de cilindros y reparación.</Typography></li>              
               <li><Typography variant="body1"><strong>Service de Blindajes:</strong> Ajuste de cerraduras y refuerzos.</Typography></li>
             </Box>
 
-            <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, mt: 4, mb: 2, fontSize: '1.75rem' }}>
+            <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, mt: 4, fontSize: '1.75rem' }}>
               ¿Cuándo es necesario cambiar la cerradura?
             </Typography>
             <Typography variant="body1" paragraph>
@@ -116,15 +117,15 @@ export default function CambioCerradurasPage() {
               </Typography>
               <Stack spacing={2}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: 'secondary.main' }} />
+                  <KeyIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                   <Typography variant="body2">Garantía por escrito</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: 'secondary.main' }} />
+                  <KeyIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                   <Typography variant="body2">Repuestos originales</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: 'secondary.main' }} />
+                  <KeyIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                   <Typography variant="body2">Trabajos en el día</Typography>
                 </Box>
               </Stack>
@@ -134,6 +135,7 @@ export default function CambioCerradurasPage() {
                 color="secondary"
                 sx={{ mt: 4, py: 2, fontWeight: 700 }}
                 href="https://wa.me/5491136219993"
+                target="_blank"
               >
                 Enviar Foto WhatsApp
               </Button>

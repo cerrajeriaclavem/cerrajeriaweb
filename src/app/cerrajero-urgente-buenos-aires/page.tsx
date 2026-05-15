@@ -19,7 +19,6 @@ export default function UrgenteBuenosAiresPage() {
   return (
     <Box component="main">
       <Navbar />
-      
       {/* Hero Section Localizado */}
       <Box 
         sx={{ 
