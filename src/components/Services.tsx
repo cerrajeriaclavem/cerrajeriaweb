@@ -17,43 +17,50 @@ import LockIcon from '@mui/icons-material/Lock';
 import HomeRepairServiceIcon from '@mui/icons-material/HomeRepairService';
 import SecurityIcon from '@mui/icons-material/Security';
 import FlashOnIcon from '@mui/icons-material/FlashOn';
+import Link from 'next/link';
 
 const services = [
   {
     title: 'Urgencias 24 Horas',
     description: 'Llegamos rápido para solucionar cualquier inconveniente, sin importar la hora.',
     icon: <FlashOnIcon sx={{ fontSize: 40 }} />,
-    color: '#FFD700'
+    color: '#FFD700',
+    link: '/cerrajero-urgente-buenos-aires'
   },
   {
     title: 'Apertura de Puertas',
     description: 'Aperturas residenciales y comerciales.',
     icon: <DoorFrontIcon sx={{ fontSize: 40 }} />,
-    color: '#003366'
+    color: '#003366',
+    link: '/apertura-de-puertas'
   },
   {
     title: 'Cerrajería Automotriz',
     description: 'Apertura y destrabe de puertas.',
     icon: <CarRentalIcon sx={{ fontSize: 40 }} />,
-    color: '#003366'
+    color: '#003366',
+    link: '/cerrajero-urgente-buenos-aires'
   },
   {
     title: 'Cajas Fuertes',
     description: 'Venta, instalación, apertura y reparación de cajas de seguridad.',
     icon: <SecurityIcon sx={{ fontSize: 40 }} />,
-    color: '#003366'
+    color: '#003366',
+    link: '/apertura-de-puertas'
   },
   {
     title: 'Cambio de Combinación',
     description: 'Instalación y cambio de cilindros y cerraduras de alta seguridad.',
     icon: <LockIcon sx={{ fontSize: 40 }} />,
-    color: '#003366'
+    color: '#003366',
+    link: '/cambio-de-cerraduras'
   },
   {
     title: 'Reparación e Instalación',
     description: 'Hacemos instalación, mantenimiento y cambio de cierapuertas (de piso y aéreo). Servicio de Blindex, cambio de herrajes, bujes y cerraduras.',
     icon: <HomeRepairServiceIcon sx={{ fontSize: 40 }} />,
-    color: '#003366'
+    color: '#003366',
+    link: '/cambio-de-cerraduras'
   }
 ];
 
@@ -100,17 +107,20 @@ export default function Services() {
                 style={{ height: '100%' }}
               >
                 <Card
+                  component={service.link ? Link : 'div'}
+                  href={service.link || '#'}
                   sx={{
                     height: '100%',
                     display: 'flex',
                     flexDirection: 'column',
                     borderRadius: 4,
+                    textDecoration: 'none',
                     transition: '0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                     border: '1px solid rgba(0, 51, 102, 0.05)',
-                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
+                    boxShadow: '0 6px 16px rgba(0, 51, 102, 0.18)',
                     '&:hover': {
                       transform: 'translateY(-12px)',
-                      boxShadow: '0 20px 40px rgba(0, 51, 102, 0.12)',
+                      boxShadow: '0 20px 40px rgba(0, 51, 102, 0.3)',
                       borderColor: 'primary.main',
                       '& .service-icon-box': {
                         bgcolor: 'primary.main',

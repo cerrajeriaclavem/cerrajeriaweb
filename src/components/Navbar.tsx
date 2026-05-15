@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import {
   AppBar,
   Toolbar,
@@ -26,6 +27,8 @@ const navItems = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [visible, setVisible] = useState(true);
   const [scrolled, setScrolled] = useState(false);
@@ -74,6 +77,11 @@ export default function Navbar() {
   };
 
   const scrollToSection = (id: string) => {
+    if (pathname !== '/') {
+      router.push(`/#${id}`);
+      setMobileOpen(false);
+      return;
+    }
     const element = document.getElementById(id);
     if (element) {
       const offset = 80;

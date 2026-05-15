@@ -43,7 +43,7 @@ export default function UrgenteBuenosAiresPage() {
             Cerrajero Urgente en Buenos Aires 24 Horas
           </Typography>
           <Typography variant="h5" sx={{ mb: 4, opacity: 0.9 }}>
-            Servicio de cerrajería de emergencia en toda la Capital Federal (CABA). 
+            Servicio de cerrajería de emergencia en CABA. 
             Llegamos rápido a tu ubicación para solucionar cualquier problema de llaves o cerraduras.
           </Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
@@ -61,6 +61,7 @@ export default function UrgenteBuenosAiresPage() {
               variant="outlined" 
               sx={{ color: 'white', borderColor: 'white', px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}
               href="https://wa.me/5491136219993"
+              target="_blank"
               startIcon={<WhatsAppIcon />}
             >
               WhatsApp 24hs
@@ -74,12 +75,12 @@ export default function UrgenteBuenosAiresPage() {
         <Grid container spacing={6}>
           <Grid size={{ xs: 12, md: 8 }}>
             <Typography variant="h2" gutterBottom sx={{ fontWeight: 700, color: 'primary.main', mb: 3 }}>
-              Cerrajería de Emergencia en CABA y GBA
+              Cerrajería de Emergencia en CABA
             </Typography>
             <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.8 }}>
               Entendemos lo estresante que es quedarse fuera de casa o perder las llaves del auto. 
-              Por eso, en <strong>Cerrajería Clavem</strong> ofrecemos un servicio de <strong>cerrajero urgente en Buenos Aires</strong> 
-              que destaca por su rapidez y profesionalismo. Estamos estratégicamente ubicados para cubrir todos los barrios de CABA en menos de 20 minutos.
+              Por eso, en <strong>Cerrajería Clavem</strong> ofrecemos un servicio de <strong>cerrajero urgente </strong> 
+              que destaca por su rapidez y profesionalismo. Estamos estratégicamente ubicados en <strong>Jerónimo Salguero 1061</strong> por lo que podemos llegar a tu barrio en cuestión de minutos!
             </Typography>
             
             <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, mt: 4, mb: 2, fontSize: '1.75rem' }}>
@@ -87,7 +88,7 @@ export default function UrgenteBuenosAiresPage() {
             </Typography>
             <Typography variant="body1" paragraph>
               No importa si es feriado, domingo o las 3 de la mañana. Nuestro equipo está operativo los 365 días del año.
-              Realizamos trabajos de alta complejidad con herramientas de última tecnología para no dañar tus aberturas.
+              Realizamos trabajos con responsabilidad y profesionalismo para no dañar tus aberturas.
             </Typography>
             
             <Box component="ul" sx={{ pl: 3, mb: 4 }}>
@@ -96,14 +97,6 @@ export default function UrgenteBuenosAiresPage() {
               <li><Typography variant="body1"><strong>Cambio de combinaciones:</strong> Si te robaron las llaves, lo solucionamos en el acto.</Typography></li>
               <li><Typography variant="body1"><strong>Cajas fuertes:</strong> Apertura y reparación técnica.</Typography></li>
             </Box>
-
-            <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, mt: 4, mb: 2, fontSize: '1.75rem' }}>
-              Zonas de cobertura en Buenos Aires
-            </Typography>
-            <Typography variant="body1" paragraph>
-              Brindamos asistencia inmediata en: Palermo, Belgrano, Recoleta, Caballito, Almagro, Villa Urquiza, 
-              San Telmo, Puerto Madero y todos los puntos estratégicos de la Ciudad Autónoma de Buenos Aires.
-            </Typography>
           </Grid>
           
           <Grid size={{ xs: 12, md: 4 }}>
@@ -130,25 +123,14 @@ export default function UrgenteBuenosAiresPage() {
                 variant="contained" 
                 sx={{ mt: 4, py: 2, fontWeight: 700 }}
                 href="tel:1136219993"
+                startIcon={<PhoneIcon />}
               >
-                Llamar Urgente
+                Llamame Ahora!
               </Button>
             </Paper>
           </Grid>
         </Grid>
       </Container>
-
-      {/* Internal Links SEO */}
-      <Box sx={{ bgcolor: '#eee', py: 6 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>Otros servicios de cerrajería:</Typography>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
-            <Link href="/apertura-de-puertas" style={{ color: '#003366', textDecoration: 'underline' }}>Apertura de Puertas en el acto</Link>
-            <Link href="/cambio-de-cerraduras" style={{ color: '#003366', textDecoration: 'underline' }}>Cambio de Cerraduras y Blindajes</Link>
-            <Link href="/" style={{ color: '#003366', textDecoration: 'underline' }}>Inicio</Link>
-          </Stack>
-        </Container>
-      </Box>
 
       <Contact />
       <Footer />

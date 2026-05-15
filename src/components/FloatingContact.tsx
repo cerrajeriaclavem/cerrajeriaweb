@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Box, Fab, Zoom, SvgIcon } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -26,30 +26,39 @@ function GoogleMapsMultiIcon(props: any) {
 }
 
 export default function FloatingContact() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   const phone = '541136219993'; // Argentina prefix + number
   const whatsappUrl = `https://wa.me/${phone}`;
   const instagramUrl = 'https://www.instagram.com/cerrajeriaclavem';
   const mapsUrl = 'https://www.google.com/maps/place/Cerrajeria+24+hs+Clavem/@-34.5982428,-58.4214406,17z/data=!3m1!4b1!4m6!3m5!1s0x236c9ef36e3bf293:0xc73ba8591207c7bd!8m2!3d-34.5982472!4d-58.4188657!16s%2Fg%2F11z21f03ry?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D';
 
+  if (!mounted) return null;
+
   return (
     <Box
       sx={{
         position: 'fixed',
-        bottom: 32,
-        right: 32,
+        bottom: { xs: 16, sm: 32 },
+        right: { xs: 12, sm: 32 },
         display: 'flex',
         flexDirection: 'column',
-        gap: 2,
+        gap: { xs: 1.5, sm: 2 },
         zIndex: 1000,
       }}
     >
       <Zoom in timeout={500} style={{ transitionDelay: '400ms' }}>
         <Fab
-          size="large"
           aria-label="google-maps"
           href={mapsUrl}
           target="_blank"
           sx={{
+            width: { xs: 48, sm: 56 },
+            height: { xs: 48, sm: 56 },
             backgroundColor: 'white',
             border: '1px solid #f1f3f4',
             '&:hover': {
@@ -58,7 +67,7 @@ export default function FloatingContact() {
               boxShadow: '0 6px 20px rgba(0,0,0,0.15)',
             },
             '& .MuiSvgIcon-root': {
-              fontSize: 40, // Enlarged icon
+              fontSize: { xs: 32, sm: 40 }, // Enlarged icon
             }
           }}
         >
@@ -68,17 +77,21 @@ export default function FloatingContact() {
 
       <Zoom in timeout={500} style={{ transitionDelay: '200ms' }}>
         <Fab
-          size="large"
           aria-label="instagram"
           href={instagramUrl}
           target="_blank"
           sx={{
+            width: { xs: 48, sm: 56 },
+            height: { xs: 48, sm: 56 },
             backgroundColor: '#E1306C',
             color: 'white',
             '&:hover': {
               backgroundColor: '#C13584',
               transform: 'scale(1.1)',
             },
+            '& .MuiSvgIcon-root': {
+              fontSize: { xs: 24, sm: 28 },
+            }
           }}
         >
           <InstagramIcon />
@@ -87,11 +100,12 @@ export default function FloatingContact() {
       
       <Zoom in timeout={500}>
         <Fab
-          size="large"
           aria-label="whatsapp"
           href={whatsappUrl}
           target="_blank"
           sx={{
+            width: { xs: 48, sm: 56 },
+            height: { xs: 48, sm: 56 },
             backgroundColor: '#25D366',
             color: 'white',
             '&:hover': {
@@ -100,7 +114,7 @@ export default function FloatingContact() {
             },
           }}
         >
-          <WhatsAppIcon sx={{ fontSize: 32 }} />
+          <WhatsAppIcon sx={{ fontSize: { xs: 28, sm: 32 } }} />
         </Fab>
       </Zoom>
     </Box>

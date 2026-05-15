@@ -7,6 +7,7 @@ import Footer from '@/components/Footer';
 import FloatingContact from '@/components/FloatingContact';
 import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
+import KeyIcon from '@mui/icons-material/Key';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
@@ -61,6 +62,7 @@ export default function AperturaPuertasPage() {
               variant="outlined" 
               sx={{ color: 'white', borderColor: 'white', px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}
               href="https://wa.me/5491136219993"
+              target="_blank"
               startIcon={<WhatsAppIcon />}
             >
               Consultar por WhatsApp
@@ -78,8 +80,8 @@ export default function AperturaPuertasPage() {
             </Typography>
             <Typography variant="body1" paragraph sx={{ fontSize: '1.1rem', lineHeight: 1.8 }}>
               En <strong>Cerrajería Clavem</strong>, nos especializamos en la <strong>apertura de puertas</strong> utilizando técnicas no invasivas. 
-              Nuestro objetivo es abrir tu propiedad sin causar daños colaterales en la cerradura, el marco o la estructura de la puerta. 
-              Contamos con herramientas de precisión y ganzúas profesionales para cada tipo de cilindro.
+              Nuestro objetivo es abrir tu propiedad sin causar daños en la cerradura, el marco o la estructura de la puerta. 
+              Contamos con herramientas y ganzúas profesionales para cada tipo de cilindro.
             </Typography>
             
             <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, mt: 4, mb: 2, fontSize: '1.75rem' }}>
@@ -90,8 +92,7 @@ export default function AperturaPuertasPage() {
             </Typography>
             
             <Box component="ul" sx={{ pl: 3, mb: 4 }}>
-              <li><Typography variant="body1"><strong>Puertas Blindadas y Semiblindadas:</strong> Conocemos los mecanismos de marcas como Pentágono, Potent y más.</Typography></li>
-              <li><Typography variant="body1"><strong>Cerraduras de Doble Paleta:</strong> Apertura técnica para cerraduras trabadas o con llaves rotas.</Typography></li>
+              <li><Typography variant="body1"><strong>Puertas Blindadas y Semiblindadas:</strong> Conocemos los mecanismos de marcas como Pentágono, Potent y más.</Typography></li>            
               <li><Typography variant="body1"><strong>Puertas de Blindex:</strong> Especialistas en locales comerciales y edificios.</Typography></li>
               <li><Typography variant="body1"><strong>Portones y Rejas:</strong> Soluciones rápidas para accesos exteriores.</Typography></li>
             </Box>
@@ -115,42 +116,22 @@ export default function AperturaPuertasPage() {
               </Typography>
               <Stack spacing={2}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: 'secondary.main' }} />
+                  <KeyIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                   <Typography variant="body2">Servicio garantizado</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: 'secondary.main' }} />
+                  <KeyIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                   <Typography variant="body2">Técnicos especializados</Typography>
                 </Box>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
-                  <Box sx={{ width: 10, height: 10, borderRadius: '50%', bgcolor: 'secondary.main' }} />
+                  <KeyIcon sx={{ color: 'secondary.main', fontSize: 20 }} />
                   <Typography variant="body2">Atención inmediata</Typography>
                 </Box>
               </Stack>
-              <Button 
-                fullWidth 
-                variant="contained" 
-                sx={{ mt: 4, py: 2, fontWeight: 700 }}
-                href="tel:1136219993"
-              >
-                Pedir Cerrajero
-              </Button>
             </Paper>
           </Grid>
         </Grid>
       </Container>
-
-      {/* Internal Links SEO */}
-      <Box sx={{ bgcolor: '#eee', py: 6 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>Explora más servicios:</Typography>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
-            <Link href="/cerrajero-urgente-buenos-aires" style={{ color: '#003366', textDecoration: 'underline' }}>Cerrajero 24 Horas Buenos Aires</Link>
-            <Link href="/cambio-de-cerraduras" style={{ color: '#003366', textDecoration: 'underline' }}>Cambio y Reparación de Cerraduras</Link>
-            <Link href="/" style={{ color: '#003366', textDecoration: 'underline' }}>Volver al Inicio</Link>
-          </Stack>
-        </Container>
-      </Box>
 
       <Contact />
       <Footer />

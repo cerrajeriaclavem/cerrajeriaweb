@@ -1,13 +1,13 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Box, Container, Typography, Stack, IconButton, Divider, Grid } from '@mui/material';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import KeyIcon from '@mui/icons-material/Key';
+import { usePathname, useRouter } from 'next/navigation';
+import { Box, Container, Typography, Stack, Divider, Grid } from '@mui/material';
 import Image from 'next/image';
 
 export default function Footer() {
+  const pathname = usePathname();
+  const router = useRouter();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function Footer() {
     >
       <Container maxWidth="lg">
         <Grid container spacing={4} sx={{ mb: 6 }}>
-          <Grid size={{ xs: 12, md: 3 }}>
+          <Grid size={{ xs: 12, md: 4 }}>
             <Stack spacing={2}>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
                 <Image src="/images/logo.png" alt="Cerrajería Clavem Logo" width={100} height={100} />
@@ -43,10 +43,10 @@ export default function Footer() {
             </Stack>
           </Grid>
           
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Typography variant="h6" fontWeight={700} gutterBottom>Enlaces</Typography>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Typography variant="h6" fontWeight={700} gutterBottom>Enlaces Rápidos</Typography>
             <Stack spacing={1}>
-              {['Inicio', 'Servicios', 'Galería', 'Opiniones', 'Contacto'].map((item) => (
+              {['Inicio', 'Galería', 'Opiniones', 'Contacto'].map((item) => (
                 <Typography 
                   key={item} 
                   variant="body2" 
@@ -57,6 +57,10 @@ export default function Footer() {
                   }}
                   onClick={() => {
                     const targetId = item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+                    if (pathname !== '/') {
+                      router.push(`/#${targetId}`);
+                      return;
+                    }
                     const el = document.getElementById(targetId);
                     if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
                   }}
@@ -67,8 +71,8 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Typography variant="h6" fontWeight={700} gutterBottom>Servicios SEO</Typography>
+          <Grid size={{ xs: 12, md: 4 }}>
+            <Typography variant="h6" fontWeight={700} gutterBottom>Nuestros Servicios</Typography>
             <Stack spacing={1}>
               {[
                 { name: 'Cerrajero Urgente', url: '/cerrajero-urgente-buenos-aires' },
@@ -90,26 +94,6 @@ export default function Footer() {
                   {service.name}
                 </Typography>
               ))}
-            </Stack>
-          </Grid>
-          
-          <Grid size={{ xs: 12, md: 3 }}>
-            <Typography variant="h6" fontWeight={700} gutterBottom>Redes Sociales</Typography>
-            <Stack direction="row" spacing={1}>
-              <IconButton 
-                sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.2)', '&:hover': { bgcolor: 'secondary.main', color: 'primary.main' } }}
-                href="https://www.instagram.com/cerrajeriaclavem"
-                target="_blank"
-              >
-                <InstagramIcon />
-              </IconButton>
-              <IconButton 
-                sx={{ color: 'white', border: '1px solid rgba(255,255,255,0.2)', '&:hover': { bgcolor: '#25D366', color: 'white' } }}
-                href="https://wa.me/541136219993"
-                target="_blank"
-              >
-                <WhatsAppIcon />
-              </IconButton>
             </Stack>
           </Grid>
         </Grid>

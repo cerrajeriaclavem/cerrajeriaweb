@@ -87,23 +87,22 @@ export default function CambioCerradurasPage() {
               Servicio Técnico Multimarca
             </Typography>
             <Typography variant="body1" paragraph>
-              Trabajamos con las marcas líderes del mercado argentino para garantizar repuestos originales y durabilidad:
+              Trabajamos con las principales marcas del mercado para garantizar repuestos originales y durabilidad:
             </Typography>
             
             <Box component="ul" sx={{ pl: 3, mb: 4 }}>
-              <li><Typography variant="body1"><strong>Cerraduras de Alta Seguridad:</strong> Acytra, Trabex, Kallay, Giaco y Privé.</Typography></li>
-              <li><Typography variant="body1"><strong>Cilindros Europerfil:</strong> Cambio de bombines y núcleos de seguridad.</Typography></li>
-              <li><Typography variant="body1"><strong>Cerraduras Digitales:</strong> Instalación y configuración de cerraduras electrónicas modernas.</Typography></li>
-              <li><Typography variant="body1"><strong>Service de Blindajes:</strong> Ajuste de cerraduras multianclaje y refuerzos.</Typography></li>
+              <li><Typography variant="body1"><strong>Cerraduras:</strong> Marca 1, marca 2</Typography></li>
+              <li><Typography variant="body1"><strong>Cerraduras Digitales:</strong> Cambio de cilindros y reparación.</Typography></li>              
+              <li><Typography variant="body1"><strong>Cilindros:</strong> Cambio de cilindros y reparación.</Typography></li>              
+              <li><Typography variant="body1"><strong>Service de Blindajes:</strong> Ajuste de cerraduras y refuerzos.</Typography></li>
             </Box>
 
             <Typography variant="h3" gutterBottom sx={{ fontWeight: 600, mt: 4, mb: 2, fontSize: '1.75rem' }}>
               ¿Cuándo es necesario cambiar la cerradura?
             </Typography>
             <Typography variant="body1" paragraph>
-              Recomendamos el cambio inmediato si has perdido tus llaves, si la llave gira con dificultad (posible desgaste del rotor) 
-              o si has sufrido un intento de forzado. Un <strong>cerrajero profesional en CABA</strong> puede evaluar si es necesaria 
-              la sustitución completa o solo una reparación del cilindro.
+              Recomendamos el cambio inmediato si has perdido tus llaves, si la llave gira con dificultad
+              o si has sufrido un intento de forzado. 
             </Typography>
           </Grid>
           
@@ -142,18 +141,6 @@ export default function CambioCerradurasPage() {
           </Grid>
         </Grid>
       </Container>
-
-      {/* Internal Links SEO */}
-      <Box sx={{ bgcolor: '#eee', py: 6 }}>
-        <Container maxWidth="lg">
-          <Typography variant="h6" gutterBottom sx={{ fontWeight: 700 }}>Otros servicios disponibles:</Typography>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
-            <Link href="/cerrajero-urgente-buenos-aires" style={{ color: '#003366', textDecoration: 'underline' }}>Cerrajero 24 Horas Urgente</Link>
-            <Link href="/apertura-de-puertas" style={{ color: '#003366', textDecoration: 'underline' }}>Apertura de Puertas sin llaves</Link>
-            <Link href="/" style={{ color: '#003366', textDecoration: 'underline' }}>Inicio</Link>
-          </Stack>
-        </Container>
-      </Box>
 
       <Contact />
       <Footer />
