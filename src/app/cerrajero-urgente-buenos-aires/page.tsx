@@ -11,7 +11,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Cerrajero Urgente Buenos Aires | 24 Horas CABA | Clavem',
-  description: '¿Buscas un cerrajero urgente en Buenos Aires? Servicio 24 horas en CABA. Llegamos en 20 minutos para aperturas de puertas, autos y cajas fuertes. ¡Llamanos ahora!',
+  description: '¿Buscas un cerrajero urgente en Buenos Aires? Servicio 24 horas en CABA. Llegamos en minutos para aperturas de puertas, autos y cajas fuertes. ¡Llamanos ahora!',
   keywords: ['cerrajero urgente buenos aires', 'cerrajero 24 horas caba', 'cerrajero domicilio buenos aires', 'cerrajeria de emergencia'],
 };
 
@@ -105,8 +105,8 @@ export default function UrgenteBuenosAiresPage() {
               </Typography>
               <Stack spacing={3} sx={{ mt: 3 }}>
                 <Box>
-                  <Typography variant="subtitle1" fontWeight={700}>Llegada en 20 min</Typography>
-                  <Typography variant="body2">Contamos con móviles en puntos clave de CABA para una respuesta inmediata.</Typography>
+                  <Typography variant="subtitle1" fontWeight={700}>Llegamos en minutos!</Typography>
+                  <Typography variant="body2">Ubicados estratégicamente en Jerónimo Salguero 1061, CABA</Typography>
                 </Box>
                 <Box>
                   <Typography variant="subtitle1" fontWeight={700}>Precios Transparentes</Typography>
