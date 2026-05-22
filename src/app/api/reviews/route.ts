@@ -9,7 +9,7 @@ export async function GET() {
     }
 
     const dataId = '0x236c9ef36e3bf293:0xc73ba8591207c7bd';
-    const url = `https://serpapi.com/search.json?engine=google_maps_reviews&data_id=${dataId}&api_key=${apiKey}&hl=es`;
+    const url = `https://serpapi.com/search.json?engine=google_maps_reviews&data_id=${dataId}&api_key=${apiKey}&hl=es&sort_by=newestFirst`;
 
     const response = await fetch(url, {
       next: { revalidate: 86400 } // Cachear por 24 horas (1 día) para no gastar créditos de SerpApi innecesariamente
@@ -28,8 +28,8 @@ export async function GET() {
     const placeInfo = data.place_info || {};
     const rawReviews = data.reviews || [];
 
-    // Mapear al formato esperado por el cliente
-    const reviews = rawReviews.map((r: any) => ({
+    // Tomar solo las últimas 3 reseñas más recientes y mapear al formato esperado por el cliente
+    const reviews = rawReviews.slice(0, 3).map((r: any) => ({
       author_name: r.user?.name || "Usuario",
       rating: r.rating || 5,
       text: r.snippet || "",
