@@ -12,7 +12,7 @@ export async function GET() {
     const url = `https://serpapi.com/search.json?engine=google_maps_reviews&data_id=${dataId}&api_key=${apiKey}&hl=es`;
 
     const response = await fetch(url, {
-      next: { revalidate: 3600 } // Cachear por 1 hora para no gastar créditos de SerpApi innecesariamente
+      next: { revalidate: 86400 } // Cachear por 24 horas (1 día) para no gastar créditos de SerpApi innecesariamente
     });
 
     if (!response.ok) {
