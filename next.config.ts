@@ -14,17 +14,6 @@ const nextConfig: NextConfig = {
         destination: "https://www.cerrajeriaclavem.com.ar/:path*",
         permanent: true,
       },
-      {
-        source: "/:path*",
-        has: [
-          {
-            type: "host",
-            value: "www.cerrajeriaclavem.com.ar",
-          },
-        ],
-        destination: "https://www.cerrajeriaclavem.com.ar/:path*",
-        permanent: true,
-      },
     ];
   },
 };

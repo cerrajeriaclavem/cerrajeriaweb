@@ -4,6 +4,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
+    console.log("get review", process.env.SERPAPI_KEY);
     console.log({
       hasKey: !!process.env.SERPAPI_KEY,
       env: process.env.VERCEL_ENV
