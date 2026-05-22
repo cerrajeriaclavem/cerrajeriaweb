@@ -1,7 +1,13 @@
+export const runtime = 'nodejs';
+
 import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
+    console.log({
+      hasKey: !!process.env.SERPAPI_KEY,
+      env: process.env.VERCEL_ENV
+    });
     const apiKey = process.env.SERPAPI_KEY;
     if (!apiKey) {
       console.warn("SERPAPI_KEY no encontrada en las variables de entorno.");
