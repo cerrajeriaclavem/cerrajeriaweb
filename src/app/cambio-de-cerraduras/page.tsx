@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: 'Cambio de Cerraduras en CABA | Reparación e Instalación | Clavem',
   description: 'Servicio profesional de cambio de cerraduras en Buenos Aires. Instalación de cerraduras de alta seguridad, blindajes y service oficial. Atención 24hs en CABA.',
   keywords: ['cambio de cerraduras', 'instalacion de cerraduras', 'reparar cerradura caba', 'cerraduras de alta seguridad buenos aires'],
+  alternates: {
+    canonical: '/cambio-de-cerraduras',
+  },
 };
 
 export default function CambioCerradurasPage() {

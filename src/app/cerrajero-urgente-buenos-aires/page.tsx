@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   title: 'Cerrajero Urgente Buenos Aires | 24 Horas CABA | Clavem',
   description: '¿Buscas un cerrajero urgente en Buenos Aires? Servicio 24 horas en CABA. Llegamos en minutos para aperturas de puertas, autos y cajas fuertes. ¡Llamanos ahora!',
   keywords: ['cerrajero urgente buenos aires', 'cerrajero 24 horas caba', 'cerrajero domicilio buenos aires', 'cerrajeria de emergencia'],
+  alternates: {
+    canonical: '/cerrajero-urgente-buenos-aires',
+  },
 };
 
 export default function UrgenteBuenosAiresPage() {

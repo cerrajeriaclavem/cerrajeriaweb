@@ -14,6 +14,9 @@ export const metadata: Metadata = {
   title: 'Apertura de Puertas en CABA | Cerrajero a Domicilio 24hs | Clavem',
   description: 'Apertura de puertas sin rotura en Buenos Aires. Servicio técnico especializado para casas, departamentos y comercios. Atención las 24 horas en CABA. ¡Llámanos!',
   keywords: ['apertura de puertas', 'abrir puerta trabada', 'cerrajero a domicilio caba', 'apertura de cerraduras sin llaves'],
+  alternates: {
+    canonical: '/apertura-de-puertas',
+  },
 };
 
 export default function AperturaPuertasPage() {
