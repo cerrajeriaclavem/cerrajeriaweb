@@ -66,24 +66,34 @@ export default function GoogleReviewsWidget() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [reviews, setReviews] = useState<Review[]>([]);
+  const [avgRating, setAvgRating] = useState<number>(5.0);
+  const [reviewsCount, setReviewsCount] = useState<number>(31);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const widgetId = process.env.NEXT_PUBLIC_FEATURABLE_WIDGET_ID;
-        const res = await fetch(`https://featurable.com/api/v2/widgets/${widgetId}`);
+        const res = await fetch('/api/reviews');
+        if (!res.ok) {
+          throw new Error('Network response was not ok');
+        }
         const data = await res.json();
         
-        if (data.success && data.widget && data.widget.reviews && data.widget.reviews.length > 0) {
-          setReviews(parseReviewsData(data.widget.reviews));
+        if (data.success && data.reviews && data.reviews.length > 0) {
+          setReviews(data.reviews);
+          setAvgRating(data.rating || 5.0);
+          setReviewsCount(data.reviewsCount || 31);
         } else {
           console.warn("La API no devolvió reviews. Mostrando array de respaldo.");
           setReviews(parseReviewsData(FALLBACK_REVIEWS_API_DATA));
+          setAvgRating(5.0);
+          setReviewsCount(31);
         }
       } catch (error) {
         console.error("Error obteniendo reviews de la API. Mostrando array de respaldo:", error);
         setReviews(parseReviewsData(FALLBACK_REVIEWS_API_DATA));
+        setAvgRating(5.0);
+        setReviewsCount(31);
       } finally {
         setLoading(false);
       }
@@ -134,6 +144,63 @@ export default function GoogleReviewsWidget() {
 
   return (
     <Box sx={{ width: '100%', mx: 'auto', position: 'relative' }}>
+      {/* Resumen de Estrellas y Valoración */}
+      <Box 
+        sx={{ 
+          display: 'flex', 
+          flexDirection: 'column', 
+          alignItems: 'center', 
+          mb: 4, 
+          textAlign: 'center' 
+        }}
+      >
+        <Box 
+          sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 2, 
+            bgcolor: 'background.paper', 
+            px: 3, 
+            py: 1.5, 
+            borderRadius: '50px',
+            border: '1px solid',
+            borderColor: 'rgba(255, 215, 0, 0.4)',
+            boxShadow: '0 4px 20px rgba(255, 215, 0, 0.1)'
+          }}
+        >
+          <Typography 
+            variant="h4" 
+            sx={{ 
+              fontWeight: 800, 
+              color: 'primary.main', 
+              lineHeight: 1,
+              fontSize: { xs: '2rem', sm: '2.5rem' } 
+            }}
+          >
+            {avgRating.toFixed(1)}
+          </Typography>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
+            <Rating 
+              value={avgRating} 
+              precision={0.1} 
+              readOnly 
+              sx={{ 
+                color: 'secondary.main',
+                fontSize: { xs: '1.2rem', sm: '1.5rem' }
+              }} 
+            />
+            <Typography 
+              variant="body2" 
+              color="text.secondary" 
+              sx={{ fontWeight: 600, fontSize: { xs: '0.8rem', sm: '0.9rem' } }}
+            >
+              {reviewsCount} opiniones en Google
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+
+      {/* Cards de Reseñas */}
       <Box 
         ref={containerRef}
         onScroll={handleScroll}
@@ -143,7 +210,6 @@ export default function GoogleReviewsWidget() {
           overflowX: 'auto',
           overflowY: 'hidden', 
           gap: { xs: 2, sm: 3 },
-          // Padding justo para evitar recortar la sombra, sin ensanchar demasiado
           px: { xs: 1.5, sm: 3, md: 2 }, 
           py: 3, 
           scrollSnapType: 'x mandatory',
@@ -178,14 +244,16 @@ export default function GoogleReviewsWidget() {
                 flexDirection: 'column',
                 borderRadius: '24px', 
                 border: '1px solid',
-                borderColor: 'divider',
+                borderColor: 'rgba(255, 215, 0, 0.25)',
                 backgroundColor: 'background.paper',
-                boxShadow: '0 6px 18px rgba(0,0,0,0.06)', 
+                boxShadow: '0 6px 16px rgba(255, 215, 0, 0.12), 0 2px 4px rgba(0,0,0,0.02)', 
                 overflow: 'hidden', 
                 transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
-                '&:hover': {
-                  transform: 'translateY(-4px)',
-                  boxShadow: '0 12px 28px rgba(0,0,0,0.1)'
+                cursor: 'pointer',
+                '&:hover, &:active': {
+                  transform: 'translateY(-6px) scale(1.02)',
+                  boxShadow: '0 12px 28px rgba(255, 215, 0, 0.35), 0 4px 12px rgba(0,0,0,0.06)',
+                  borderColor: 'secondary.main'
                 }
               }}
             >
