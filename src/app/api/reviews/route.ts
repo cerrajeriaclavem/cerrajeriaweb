@@ -4,14 +4,14 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    console.log("get review", process.env.SERPAPI_KEY);
+    console.log("get review", process.env.NEXT_PUBLIC_SERPAPI_KEY);
     console.log({
-      hasKey: !!process.env.SERPAPI_KEY,
+      hasKey: !!process.env.NEXT_PUBLIC_SERPAPI_KEY,
       env: process.env.VERCEL_ENV
     });
-    const apiKey = process.env.SERPAPI_KEY;
+    const apiKey = process.env.NEXT_PUBLIC_SERPAPI_KEY;
     if (!apiKey) {
-      console.warn("SERPAPI_KEY no encontrada en las variables de entorno.");
+      console.warn("NEXT_PUBLIC_SERPAPI_KEY no encontrada en las variables de entorno.");
       return NextResponse.json({ success: false, error: "API Key not configured" }, { status: 500 });
     }
 
