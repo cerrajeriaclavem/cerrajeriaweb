@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import FloatingContact from '@/components/FloatingContact';
+import CallButton from '@/components/CallButton';
 import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import KeyIcon from '@mui/icons-material/Key';
@@ -50,16 +51,16 @@ export default function AperturaPuertasPage() {
             Abrimos cualquier tipo de puerta en el acto en toda la Ciudad de Buenos Aires.
           </Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
-            <Button 
-              variant="contained" 
-              color="secondary" 
-              size="large" 
+            <CallButton
+              variant="contained"
+              color="secondary"
+              size="large"
               startIcon={<PhoneIcon />}
               href="tel:1136219993"
               sx={{ px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}
             >
               Llamar ahora: 11-3621-9993
-            </Button>
+            </CallButton>
             <Button 
               variant="outlined" 
               sx={{ color: 'white', borderColor: 'white', px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}

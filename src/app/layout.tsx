@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import ThemeRegistry from "./ThemeRegistry";
+import { GOOGLE_ADS_ID } from "@/lib/gtag";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
   title: "Cerrajería 24hs CABA | Cerrajero Urgente 24 Horas | Clavem",
 
   description:
-    "Cerrajería 24 horas en CABA. Apertura de puertas, autos, cajas fuertes y cambio de cerraduras. Atención urgente las 24 hs.",
+    "Cerrajería 24 horas CABA. Apertura de puertas, autos, cajas fuertes y cambio de cerraduras. Atención urgente las 24 hs.",
 
   keywords: [
     "cerrajeria",
@@ -61,6 +62,22 @@ export default function RootLayout({
   return (
     <html lang="es">
       <head>
+        {/* Google Ads: etiqueta global del sitio (gtag.js) para medición de conversiones */}
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', '${GOOGLE_ADS_ID}');
+            `,
+          }}
+        />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

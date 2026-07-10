@@ -17,6 +17,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SendIcon from '@mui/icons-material/Send';
+import { trackPhoneCallConversion } from '@/lib/gtag';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -82,11 +83,12 @@ export default function Contact() {
                 transition={{ delay: index * 0.1 }}
                 style={{ height: '100%' }}
               >
-                <Paper 
+                <Paper
                   component="a"
                   href={item.href}
                   target={item.target}
-                  elevation={0} 
+                  onClick={item.href.startsWith('tel:') ? trackPhoneCallConversion : undefined}
+                  elevation={0}
                   sx={{ 
                     display: 'block',
                     textDecoration: 'none',

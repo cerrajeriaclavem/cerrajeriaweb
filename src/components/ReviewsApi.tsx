@@ -306,7 +306,7 @@ export default function GoogleReviewsWidget() {
                   color="text.secondary" 
                   sx={{ fontStyle: 'italic', lineHeight: 1.6, fontSize: { xs: '0.85rem', sm: '0.875rem' } }}
                 >
-                  "{review.text}"
+                  {review.text}
                 </Typography>
               </CardContent>
             </Card>

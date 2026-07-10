@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import FloatingContact from '@/components/FloatingContact';
+import CallButton from '@/components/CallButton';
 import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Link from 'next/link';
@@ -49,16 +50,16 @@ export default function UrgenteBuenosAiresPage() {
             Llegamos rápido a tu ubicación para solucionar cualquier problema de llaves o cerraduras.
           </Typography>
           <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
-            <Button 
-              variant="contained" 
-              color="secondary" 
-              size="large" 
+            <CallButton
+              variant="contained"
+              color="secondary"
+              size="large"
               startIcon={<PhoneIcon />}
               href="tel:1136219993"
               sx={{ px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}
             >
               Llamar ahora: 11-3621-9993
-            </Button>
+            </CallButton>
             <Button 
               variant="outlined" 
               sx={{ color: 'white', borderColor: 'white', px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}
@@ -120,15 +121,15 @@ export default function UrgenteBuenosAiresPage() {
                   <Typography variant="body2">Tu seguridad es nuestra prioridad. Técnicos confiables y con experiencia.</Typography>
                 </Box>
               </Stack>
-              <Button 
-                fullWidth 
-                variant="contained" 
+              <CallButton
+                fullWidth
+                variant="contained"
                 sx={{ mt: 4, py: 2, fontWeight: 700 }}
                 href="tel:1136219993"
                 startIcon={<PhoneIcon />}
               >
                 Llamame Ahora!
-              </Button>
+              </CallButton>
             </Paper>
           </Grid>
         </Grid>

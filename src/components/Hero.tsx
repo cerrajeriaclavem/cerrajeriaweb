@@ -1,11 +1,12 @@
 'use client';
 
 import React from 'react';
-import { Box, Typography, Button, Container, Grid, Paper } from '@mui/material';
+import { Box, Typography, Button, Container, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
 import StorefrontIcon from '@mui/icons-material/Storefront';
+import { trackPhoneCallConversion } from '@/lib/gtag';
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -109,11 +110,12 @@ export default function Hero() {
                 >
                   Solicitar Presupuesto
                 </Button>
-                <Button 
-                  variant="contained" 
+                <Button
+                  variant="contained"
                   size="large"
                   href="tel:1136219993"
-                  sx={{ 
+                  onClick={trackPhoneCallConversion}
+                  sx={{
                     px: 6, 
                     py: 2, 
                     fontSize: '1.1rem', 
