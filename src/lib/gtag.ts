@@ -11,13 +11,26 @@ declare global {
   }
 }
 
-// Envía a Google Ads el evento de conversión al hacer clic en "Llamar a la empresa".
-export function trackPhoneCallConversion() {
+const PHONE_URL = "tel:1136219993";
+
+// Envía a Google Ads el evento de conversión al hacer clic en "Llamar a la
+// empresa". Retrasa la navegación al enlace tel: hasta que el evento se
+// haya enviado (o venza el timeout), tal como recomienda Google, para que
+// el sistema operativo no corte el pedido de red al abrir el marcador.
+export function trackPhoneCallConversion(event: React.SyntheticEvent) {
   if (typeof window === "undefined" || typeof window.gtag !== "function") {
     return;
   }
 
+  event.preventDefault();
+
+  const navigateToPhone = () => {
+    window.location.href = PHONE_URL;
+  };
+
   window.gtag("event", "conversion", {
     send_to: `${GOOGLE_ADS_ID}/${PHONE_CALL_CONVERSION_LABEL}`,
+    event_callback: navigateToPhone,
+    event_timeout: 2000,
   });
 }
