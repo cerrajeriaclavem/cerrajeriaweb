@@ -75,7 +75,7 @@ export default function Footer() {
             <Typography variant="h6" fontWeight={700} gutterBottom>Nuestros Servicios</Typography>
             <Stack spacing={1}>
               {[
-                { name: 'Cerrajero Urgente', url: '/cerrajero-urgente-buenos-aires' },
+                { name: 'Cerrajero Urgente', url: '/cerrajero-urgente-caba' },
                 { name: 'Apertura de Puertas', url: '/apertura-de-puertas' },
                 { name: 'Cambio de Cerraduras', url: '/cambio-de-cerraduras' }
               ].map((service) => (

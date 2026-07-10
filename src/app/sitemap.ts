@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/cerrajero-urgente-buenos-aires`,
+      url: `${baseUrl}/cerrajero-urgente-caba`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,

@@ -36,7 +36,7 @@ const services = [
     description: 'Llegamos rápido para solucionar cualquier inconveniente, sin importar la hora.',
     icon: <FlashOnIcon sx={{ fontSize: 40 }} />,
     color: '#FFD700',
-    link: '/cerrajero-urgente-buenos-aires'
+    link: '/cerrajero-urgente-caba'
   },
   {
     title: 'Apertura de Puertas',
@@ -50,7 +50,7 @@ const services = [
     description: 'Apertura y destrabe de puertas.',
     icon: <CarRentalIcon sx={{ fontSize: 40 }} />,
     color: '#003366',
-    link: '/cerrajero-urgente-buenos-aires'
+    link: '/cerrajero-urgente-caba'
   },
   {
     title: 'Cajas Fuertes',

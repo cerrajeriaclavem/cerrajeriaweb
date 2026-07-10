@@ -11,15 +11,15 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Cerrajero Urgente Buenos Aires | 24 Horas CABA | Clavem',
-  description: '¿Buscas un cerrajero urgente en Buenos Aires? Servicio 24 horas en CABA. Llegamos en minutos para aperturas de puertas, autos y cajas fuertes. ¡Llamanos ahora!',
-  keywords: ['cerrajero urgente buenos aires', 'cerrajero 24 horas caba', 'cerrajero domicilio buenos aires', 'cerrajeria de emergencia'],
+  title: 'Cerrajero Urgente CABA | 24 Horas | Clavem',
+  description: '¿Buscas un cerrajero urgente en CABA? Servicio 24 horas en Capital Federal. Llegamos en minutos para aperturas de puertas, autos y cajas fuertes. ¡Llamanos ahora!',
+  keywords: ['cerrajero urgente caba', 'cerrajero 24 horas caba', 'cerrajero domicilio caba', 'cerrajeria de emergencia'],
   alternates: {
-    canonical: '/cerrajero-urgente-buenos-aires',
+    canonical: '/cerrajero-urgente-caba',
   },
 };
 
-export default function UrgenteBuenosAiresPage() {
+export default function UrgenteCabaPage() {
   return (
     <Box component="main">
       <Navbar />
@@ -43,7 +43,7 @@ export default function UrgenteBuenosAiresPage() {
               lineHeight: 1.2
             }}
           >
-            Cerrajero Urgente en Buenos Aires 24 Horas
+            Cerrajero Urgente en CABA 24 Horas
           </Typography>
           <Typography variant="h5" sx={{ mb: 4, opacity: 0.9 }}>
             Servicio de cerrajería de emergencia en CABA. 

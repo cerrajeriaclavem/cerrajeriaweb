@@ -1,26 +1,18 @@
 export const runtime = 'nodejs';
 
 import { NextResponse } from 'next/server';
+import { unstable_cache } from 'next/cache';
 
-export async function GET() {
-  try {
-    console.log("get review", process.env.NEXT_PUBLIC_SERPAPI_KEY);
-    console.log({
-      hasKey: !!process.env.NEXT_PUBLIC_SERPAPI_KEY,
-      env: process.env.VERCEL_ENV
-    });
-    const apiKey = process.env.NEXT_PUBLIC_SERPAPI_KEY;
-    if (!apiKey) {
-      console.warn("NEXT_PUBLIC_SERPAPI_KEY no encontrada en las variables de entorno.");
-      return NextResponse.json({ success: false, error: "API Key not configured" }, { status: 500 });
-    }
-
+// Envuelta en unstable_cache para que solo se cacheen respuestas exitosas de
+// SerpApi por 24hs. A diferencia de pasarle `next: { revalidate }` al fetch
+// directamente, acá un error (rate limit, créditos agotados, etc.) no queda
+// "congelado" en caché: el próximo pedido vuelve a intentar contra la API real.
+const getGoogleReviews = unstable_cache(
+  async (apiKey: string) => {
     const dataId = '0x236c9ef36e3bf293:0xc73ba8591207c7bd';
     const url = `https://serpapi.com/search.json?engine=google_maps_reviews&data_id=${dataId}&api_key=${apiKey}&hl=es&sort_by=newestFirst`;
 
-    const response = await fetch(url, {
-      next: { revalidate: 86400 } // Cachear por 24 horas (1 día) para no gastar créditos de SerpApi innecesariamente
-    });
+    const response = await fetch(url);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -43,12 +35,27 @@ export async function GET() {
       time: r.date || "Hace poco"
     }));
 
-    return NextResponse.json({
-      success: true,
+    return {
       rating: placeInfo.rating || 5.0,
       reviewsCount: placeInfo.reviews || 0,
       reviews
-    });
+    };
+  },
+  ['google-reviews'],
+  { revalidate: 86400 }
+);
+
+export async function GET() {
+  try {
+    const apiKey = process.env.NEXT_PUBLIC_SERPAPI_KEY;
+    if (!apiKey) {
+      console.warn("NEXT_PUBLIC_SERPAPI_KEY no encontrada en las variables de entorno.");
+      return NextResponse.json({ success: false, error: "API Key not configured" }, { status: 500 });
+    }
+
+    const { rating, reviewsCount, reviews } = await getGoogleReviews(apiKey);
+
+    return NextResponse.json({ success: true, rating, reviewsCount, reviews });
   } catch (error: any) {
     console.error("Error en API de reseñas:", error);
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });

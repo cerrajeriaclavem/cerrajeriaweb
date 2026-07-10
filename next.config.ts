@@ -14,6 +14,11 @@ const nextConfig: NextConfig = {
         destination: "https://www.cerrajeriaclavem.com.ar/:path*",
         permanent: true,
       },
+      {
+        source: "/cerrajero-urgente-buenos-aires",
+        destination: "/cerrajero-urgente-caba",
+        permanent: true,
+      },
     ];
   },
 };
