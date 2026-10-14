@@ -42,6 +42,24 @@ export const metadata: Metadata = {
     locale: "es_AR",
 
     type: "website",
+
+    // Miniatura que muestran WhatsApp, Facebook, etc. al compartir el link
+    images: [
+      {
+        url: "/logo-miniatura.jpg",
+        width: 640,
+        height: 640,
+        alt: "Cerrajería Clavem 24 hs",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary",
+    title: "Cerrajería Clavem | Cerrajería 24 Horas en CABA",
+    description:
+      "Cerrajería 24/7 en CABA. Llegamos en minutos. Aperturas, cajas fuertes, autos y más.",
+    images: ["/logo-miniatura.jpg"],
   },
 
   robots: {
