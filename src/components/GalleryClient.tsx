@@ -135,6 +135,28 @@ export default function GalleryClient({ categories, items }: Props) {
 
   useEffect(() => () => cancelAnimationFrame(carouselRaf.current), []);
 
+  /* ---- Lightbox: el "atrás" del celular lo cierra en vez de salir de la página ---- */
+
+  // Al abrir se agrega una entrada al historial; el "atrás" la consume y cierra
+  // el lightbox. Si se cierra de otra forma (X, Escape, fondo), se descarta esa
+  // entrada a mano para que no quede un "atrás" de más.
+  const lightboxOpen = lightboxIndex !== null;
+
+  useEffect(() => {
+    if (!lightboxOpen) return;
+    window.history.pushState({ galleryLightbox: true }, '');
+    let closedByBack = false;
+    const onPopState = () => {
+      closedByBack = true;
+      setLightboxIndex(null);
+    };
+    window.addEventListener('popstate', onPopState);
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+      if (!closedByBack) window.history.back();
+    };
+  }, [lightboxOpen]);
+
   const scrollCarousel = (step: number) => {
     const el = carouselRef.current;
     if (!el) return;
@@ -735,6 +757,8 @@ interface LightboxProps {
 
 function Lightbox({ items, labels, index, onChange, onClose }: LightboxProps) {
   const [direction, setDirection] = useState(0);
+  // Si el toque terminó siendo un swipe, no cuenta como tap para pausar el video.
+  const dragged = useRef(false);
   const open = index !== null;
   const item = index !== null ? items[index] : null;
 
@@ -833,9 +857,15 @@ function Lightbox({ items, labels, index, onChange, onClose }: LightboxProps) {
                 animate="center"
                 exit="exit"
                 transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-                drag={item.type === 'image' ? 'x' : false}
+                drag="x"
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.6}
+                onPointerDown={() => {
+                  dragged.current = false;
+                }}
+                onDragStart={() => {
+                  dragged.current = true;
+                }}
                 onDragEnd={(_, info) => {
                   if (info.offset.x < -80) go(1);
                   else if (info.offset.x > 80) go(-1);
@@ -860,6 +890,7 @@ function Lightbox({ items, labels, index, onChange, onClose }: LightboxProps) {
                     autoPlay
                     playsInline
                     onClick={(e: React.MouseEvent<HTMLVideoElement>) => {
+                      if (dragged.current) return;
                       const v = e.currentTarget;
                       if (v.paused) v.play().catch(() => {});
                       else v.pause();
@@ -910,6 +941,8 @@ function Lightbox({ items, labels, index, onChange, onClose }: LightboxProps) {
   );
 }
 
+const NAV_BUTTON_BG = 'rgba(0,26,51,0.6)';
+
 function NavButton({ side, onClick }: { side: 'left' | 'right'; onClick: () => void }) {
   const Icon = side === 'left' ? ChevronLeftRoundedIcon : ChevronRightRoundedIcon;
   return (
@@ -925,10 +958,16 @@ function NavButton({ side, onClick }: { side: 'left' | 'right'; onClick: () => v
         width: { xs: 40, md: 52 },
         height: { xs: 40, md: 52 },
         color: 'white',
-        bgcolor: 'rgba(0,26,51,0.6)',
+        bgcolor: NAV_BUTTON_BG,
         border: '1px solid rgba(255,255,255,0.15)',
         backdropFilter: 'blur(6px)',
-        '&:hover': { bgcolor: GOLD, color: NAVY_DARK, borderColor: GOLD },
+        // En pantallas táctiles el :hover queda "pegado" después del toque: ahí se
+        // mantiene el fondo base (MUI lo dejaría transparente) y el dorado queda
+        // solo para dispositivos con mouse.
+        '&:hover': { bgcolor: NAV_BUTTON_BG },
+        '@media (hover: hover)': {
+          '&:hover': { bgcolor: GOLD, color: NAVY_DARK, borderColor: GOLD },
+        },
       }}
     >
       <Icon />
