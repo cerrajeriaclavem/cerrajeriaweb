@@ -24,6 +24,7 @@ Sitio de Cerrajería Clavem (https://www.cerrajeriaclavem.com.ar), cerrajería 2
 
 - `src/lib/gtag.ts` tiene el ID de Ads y `trackPhoneCallConversion`, que hace `preventDefault()` en el enlace `tel:` y navega recién cuando gtag confirma el evento (o a los 2 s).
 - Todo botón de llamada debe usar `src/components/CallButton.tsx` en vez de `<Button href="tel:...">`: es un Client Component, así que funciona dentro de Server Components (las landings).
+- Todo enlace de WhatsApp debe usar `WhatsAppButton` (`src/components/WhatsAppButton.tsx`). Dispara `trackWhatsAppConversion` con `transport_type: 'beacon'` y NO hace `preventDefault`, para que el enlace abra normalmente. Para elementos que no son `Button` (Fab, Paper) se pasa `as={Fab}` / `as={Paper}`.
 - El teléfono (`1136219993`) aparece en varios lugares (gtag, JSON-LD en `layout.tsx`, enlaces de WhatsApp); cambiarlo implica buscarlo en todo el repo.
 
 ### Galería

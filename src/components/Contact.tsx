@@ -18,6 +18,7 @@ import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SendIcon from '@mui/icons-material/Send';
 import { trackPhoneCallConversion } from '@/lib/gtag';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -72,9 +73,13 @@ export default function Contact() {
         <Grid container spacing={3} sx={{ mb: 8 }}>
           {[
             { icon: <PhoneIcon />, title: 'Llamame!', content: '11-3621-9993', href: 'tel:1136219993', target: '_self' },
-            { icon: <WhatsAppIcon />, title: 'Escribime', content: '11-6524-9874', href: 'https://wa.me/5491165249874', target: '_blank' },
+            { icon: <WhatsAppIcon />, title: 'Escribime', content: '11-3621-9993', href: 'https://wa.me/5491136219993', target: '_blank' },
             { icon: <LocationOnIcon />, title: 'Ubicación', content: 'Jerónimo Salguero 1061, CABA', href: 'https://www.google.com/maps/place/Cerrajeria+24+hs+Clavem/@-34.5982428,-58.4214406,17z/data=!3m1!4b1!4m6!3m5!1s0x236c9ef36e3bf293:0xc73ba8591207c7bd!8m2!3d-34.5982472!4d-58.4188657!16s%2Fg%2F11z21f03ry?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D', target: '_blank' }
-          ].map((item, index) => (
+          ].map((item, index) => {
+            // Los enlaces de WhatsApp van con WhatsAppButton (conversión de Ads).
+            const isWhatsApp = item.href.startsWith('https://wa.me/');
+            const Card: React.ElementType = isWhatsApp ? WhatsAppButton : Paper;
+            return (
             <Grid size={{ xs: 12, md: 4 }} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -83,8 +88,8 @@ export default function Contact() {
                 transition={{ delay: index * 0.1 }}
                 style={{ height: '100%' }}
               >
-                <Paper
-                  component="a"
+                <Card
+                  {...(isWhatsApp ? { as: Paper } : { component: 'a' })}
                   href={item.href}
                   target={item.target}
                   onClick={item.href.startsWith('tel:') ? trackPhoneCallConversion : undefined}
@@ -108,10 +113,11 @@ export default function Contact() {
                   </Box>
                   <Typography variant="h6" fontWeight={800} gutterBottom>{item.title}</Typography>
                   <Typography variant="body1">{item.content}</Typography>
-                </Paper>
+                </Card>
               </motion.div>
             </Grid>
-          ))}
+            );
+          })}
         </Grid>
 
         {/* Contact Form Container (Centered and Balanced) */}

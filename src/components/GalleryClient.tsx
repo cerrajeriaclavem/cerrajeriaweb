@@ -1,5 +1,6 @@
 'use client';
 
+import WhatsAppButton from '@/components/WhatsAppButton';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { Box, Button, ButtonBase, Container, Dialog, IconButton, Typography } from '@mui/material';
@@ -450,7 +451,7 @@ export default function GalleryClient({ categories, items }: Props) {
               Ver {hiddenCount} más
             </Button>
           )}
-          <Button
+          <WhatsAppButton
             href={whatsappUrl(activeCategory?.label)}
             target="_blank"
             rel="noopener"
@@ -461,7 +462,7 @@ export default function GalleryClient({ categories, items }: Props) {
             sx={{ borderRadius: 999, fontWeight: 700, boxShadow: '0 10px 30px rgba(255,215,0,0.2)' }}
           >
             Consultanos por WhatsApp
-          </Button>
+          </WhatsAppButton>
         </Box>
       </Container>
 
@@ -923,7 +924,7 @@ function Lightbox({ items, labels, index, onChange, onClose }: LightboxProps) {
 
           {/* CTA */}
           <Box sx={{ display: 'flex', justifyContent: 'center', px: 2, py: { xs: 2, md: 3 } }}>
-            <Button
+            <WhatsAppButton
               href={whatsappUrl(label)}
               target="_blank"
               rel="noopener"
@@ -933,7 +934,7 @@ function Lightbox({ items, labels, index, onChange, onClose }: LightboxProps) {
               sx={{ borderRadius: 999, fontWeight: 700 }}
             >
               Consultar por {label}
-            </Button>
+            </WhatsAppButton>
           </Box>
         </Box>
       )}

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Box, Fab, Zoom, SvgIcon } from '@mui/material';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 // Custom Google Maps Multi-colored Icon
 function GoogleMapsMultiIcon(props: any) {
@@ -32,7 +33,7 @@ export default function FloatingContact() {
     setMounted(true);
   }, []);
 
-  const phone = '541136219993'; // Argentina prefix + number
+  const phone = '5491136219993'; // Argentina prefix + 9 + number
   const whatsappUrl = `https://wa.me/${phone}`;
   const instagramUrl = 'https://www.instagram.com/cerrajeriaclavem';
   const mapsUrl = 'https://www.google.com/maps/place/Cerrajeria+24+hs+Clavem/@-34.5982428,-58.4214406,17z/data=!3m1!4b1!4m6!3m5!1s0x236c9ef36e3bf293:0xc73ba8591207c7bd!8m2!3d-34.5982472!4d-58.4188657!16s%2Fg%2F11z21f03ry?entry=ttu&g_ep=EgoyMDI2MDUxMS4wIKXMDSoASAFQAw%3D%3D';
@@ -99,7 +100,8 @@ export default function FloatingContact() {
       </Zoom>
       
       <Zoom in timeout={500}>
-        <Fab
+        <WhatsAppButton
+          as={Fab}
           aria-label="whatsapp"
           href={whatsappUrl}
           target="_blank"
@@ -115,7 +117,7 @@ export default function FloatingContact() {
           }}
         >
           <WhatsAppIcon sx={{ fontSize: { xs: 28, sm: 32 } }} />
-        </Fab>
+        </WhatsAppButton>
       </Zoom>
     </Box>
   );

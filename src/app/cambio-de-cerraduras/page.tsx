@@ -1,11 +1,12 @@
 import React from 'react';
 import { Metadata } from 'next';
-import { Box, Container, Typography, Button, Grid, Paper, Stack } from '@mui/material';
+import { Box, Container, Typography, Grid, Paper, Stack } from '@mui/material';
 import Navbar from '@/components/Navbar';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import FloatingContact from '@/components/FloatingContact';
 import CallButton from '@/components/CallButton';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import KeyIcon from '@mui/icons-material/Key';
@@ -61,7 +62,7 @@ export default function CambioCerradurasPage() {
             >
               Llamar ahora: 11-3621-9993
             </CallButton>
-            <Button 
+            <WhatsAppButton 
               variant="outlined" 
               sx={{ color: 'white', borderColor: 'white', px: 4, py: 2, fontSize: '1.1rem', fontWeight: 700 }}
               href="https://wa.me/5491136219993"
@@ -69,7 +70,7 @@ export default function CambioCerradurasPage() {
               startIcon={<WhatsAppIcon />}
             >
               Pedir Presupuesto
-            </Button>
+            </WhatsAppButton>
           </Stack>
         </Container>
       </Box>
@@ -133,7 +134,7 @@ export default function CambioCerradurasPage() {
                   <Typography variant="body2">Trabajos en el día</Typography>
                 </Box>
               </Stack>
-              <Button 
+              <WhatsAppButton 
                 fullWidth 
                 variant="contained" 
                 color="secondary"
@@ -142,7 +143,7 @@ export default function CambioCerradurasPage() {
                 target="_blank"
               >
                 Enviar Foto WhatsApp
-              </Button>
+              </WhatsAppButton>
             </Paper>
           </Grid>
         </Grid>

@@ -1,5 +1,6 @@
 'use client';
 
+import WhatsAppButton from '@/components/WhatsAppButton';
 import React from 'react';
 import {
   Box,
@@ -214,7 +215,7 @@ export default function Services() {
                 <Typography variant="body1" sx={{ opacity: 0.8, mb: 4 }}>
                   Soluciones integrales de cerrajería en un solo lugar, con personal altamente capacitado.
                 </Typography>
-                <Button 
+                <WhatsAppButton 
                   variant="contained" 
                   color="secondary" 
                   size="large"
@@ -224,7 +225,7 @@ export default function Services() {
                   target="_blank"
                 >
                   Consultar Presupuesto
-                </Button>
+                </WhatsAppButton>
               </Grid>
               
               <Grid size={{ xs: 12, md: 8 }}>
@@ -306,7 +307,7 @@ export default function Services() {
                     </Grid>
                   ))}
                 </Grid>
-                <Button 
+                <WhatsAppButton 
                   variant="contained" 
                   color="secondary" 
                   size="large"
@@ -316,7 +317,7 @@ export default function Services() {
                   target="_blank"
                 >
                   Consultar Presupuesto
-                </Button>
+                </WhatsAppButton>
               </AccordionDetails>
             </Accordion>
           </Paper>

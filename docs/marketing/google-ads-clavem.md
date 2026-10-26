@@ -437,7 +437,7 @@ Ajustes sugeridos:
 - Vincular Google Business Profile para extensiones de ubicacion.
 - Usar solo ubicacion real: personas en CABA, no interesadas en CABA.
 - Confirmar que el telefono principal sea consistente en sitio y anuncios.
-- Corregir inconsistencias de WhatsApp: el sitio usa `11-6524-9874` en contacto y `11-3621-9993` en floating/landings.
+- ~~Corregir inconsistencias de WhatsApp~~ (resuelto): todos los enlaces de WhatsApp del sitio usan `5491136219993` (contacto, botón flotante, galería, servicios y landings). Los clics en WhatsApp ahora se miden con la conversión "Clic en WhatsApp (sitio web)".
 - Revisar textos con caracteres mal codificados antes de escalar trafico.
 - Definir valor de conversion estimado para llamada o WhatsApp calificado.
 
